@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_requirements().
+ */
+function mhm_jq17_requirements($phase) {
+	$requirements = array();
+	$t = get_t();
+
+	$requirements['jquery_1.7.2'] = array(
+		'title' => $t('jQuery 1.7'),
+	);
+
+	$libraries = libraries_get_libraries();
+	if(isset($libraries['jquery_1.7.2'])) {
+		$requirements['jquery_1.7.2'] += array(
+			'value' => $t('Installed'),
+			'severity' => REQUIREMENT_OK,
+		);
+	} else {
+		$requirements['jquery_1.7.2'] += array(
+			'value' => $t('Not Installed'),
+			'severity' => REQUIREMENT_ERROR,
+			'description' => $t('Please install jQuery 1.7.2'),
+		);
+	}
+
+	return $requirements;
+}
