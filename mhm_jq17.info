@@ -1,6 +1,6 @@
 name = MHM jQuery 1.7
 description = Updates non-admin pages to 1.7
 core = 7.x
-package = custom
+package = MHM Contrib
 
 dependencies[] = libraries
